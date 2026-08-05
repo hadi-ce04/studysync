@@ -6,6 +6,12 @@ interface Stats {
   total_minutes: number;
 }
 
+// Dynamic backend URL to prevent production requests from hitting localhost
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://studysync-backend-br2b.onrender.com";
+
 export default function PomodoroTimer() {
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
@@ -14,7 +20,7 @@ export default function PomodoroTimer() {
   // Fetch study statistics
   const fetchStats = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/sessions/stats");
+      const response = await axios.get(`${API_BASE_URL}/api/sessions/stats`);
       setStats(response.data);
     } catch (err) {
       console.error("Failed to fetch session stats:", err);
@@ -27,7 +33,8 @@ export default function PomodoroTimer() {
 
   // Timer countdown logic
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    // ✅ Fix: Use ReturnType<typeof setInterval> instead of NodeJS.Timeout
+    let timer: ReturnType<typeof setInterval>;
     if (isRunning && timeLeft > 0) {
       timer = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
@@ -43,7 +50,7 @@ export default function PomodoroTimer() {
     setIsRunning(false);
     setTimeLeft(25 * 60);
     try {
-      await axios.post("http://localhost:8000/api/sessions", {
+      await axios.post(`${API_BASE_URL}/api/sessions`, {
         duration_minutes: 25,
       });
       fetchStats();
