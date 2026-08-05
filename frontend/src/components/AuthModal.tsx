@@ -7,6 +7,12 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
+// ✅ Dynamic Backend API Endpoint (Render for production, localhost for local dev)
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://studysync-backend-br2b.onrender.com";
+
 export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { login: setAuthToken } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
@@ -31,7 +37,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         formData.append("password", password);
 
         const response = await axios.post(
-          "http://localhost:8000/api/auth/login",
+          `${API_BASE_URL}/api/auth/login`,
           formData
         );
 
@@ -39,7 +45,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
       } else {
         // Registration expects JSON payload with name, email, and password
         const response = await axios.post(
-          "http://localhost:8000/api/auth/register",
+          `${API_BASE_URL}/api/auth/register`,
           {
             name,
             email,
@@ -59,7 +65,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
     } finally {
       setLoading(false);
     }
-  }; // <-- Closed handleSubmit correctly
+  };
 
   return (
     <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
@@ -97,8 +103,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your Name"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-all"
+                placeholder=""
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 transition-all"
               />
             </div>
           )}
@@ -112,8 +118,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-all"
+              placeholder=""
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 transition-all"
             />
           </div>
 
@@ -126,8 +132,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-all"
+              placeholder=""
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 transition-all"
             />
           </div>
 
