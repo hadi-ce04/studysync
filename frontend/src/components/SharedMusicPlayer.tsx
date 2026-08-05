@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import YouTube from "react-youtube";
+import YouTube, { YouTubeEvent } from "react-youtube";
 
 interface SharedMusicPlayerProps {
   socketRef: React.MutableRefObject<WebSocket | null>;
@@ -9,8 +9,8 @@ interface SharedMusicPlayerProps {
 export default function SharedMusicPlayer({ socketRef, userName }: SharedMusicPlayerProps) {
   const [videoUrl, setVideoUrl] = useState("");
   const [videoId, setVideoId] = useState("5qap5aO4i9A"); // Default lofi girl stream
-  const [isPlaying, setIsPlaying] = useState(false);
   
+  // ✅ Fix: Removed unused `isPlaying` state variable to resolve TS6133
   const playerRef = useRef<any>(null);
 
   // Extract YouTube ID from various link formats
@@ -29,7 +29,6 @@ export default function SharedMusicPlayer({ socketRef, userName }: SharedMusicPl
     }
 
     setVideoId(extractedId);
-    setIsPlaying(true);
     setVideoUrl("");
 
     // Broadcast change to room
@@ -45,7 +44,7 @@ export default function SharedMusicPlayer({ socketRef, userName }: SharedMusicPl
     }
   };
 
-  const onPlayerReady = (event: any) => {
+  const onPlayerReady = (event: YouTubeEvent) => {
     playerRef.current = event.target;
   };
 
