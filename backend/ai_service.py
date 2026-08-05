@@ -1,5 +1,9 @@
 import os
 import httpx
+from dotenv import load_dotenv
+
+# Load variables from .env file for local development
+load_dotenv()
 
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
@@ -10,11 +14,11 @@ SYSTEM_PROMPT = (
 
 async def generate_ai_response(prompt: str) -> str:
     """
-    Checks for Groq API key first (used in cloud deployment).
+    Checks for Groq API key first (used in cloud deployment or via local .env).
     Fallback to local Ollama instance (used in local development).
     """
-    # Uses environment variable or falls back directly to your Groq API key
-    groq_api_key = os.getenv("GROQ_API_KEY", "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")
+    # NO HARDCODED FALLBACK KEY HERE!
+    groq_api_key = os.getenv("GROQ_API_KEY")
 
     # 1. Try Groq Cloud API first if API key exists
     if groq_api_key:
