@@ -96,7 +96,14 @@ export default function StudyRoom() {
     if (!userName.trim() || !roomId.trim()) return;
 
     const cleanRoomCode = roomId.trim().toLowerCase().replace(/\s+/g, "-");
-    const ws = new WebSocket(`ws://localhost:8000/ws/room/${cleanRoomCode}`);
+
+    // Dynamic backend production/local switch
+    const backendHost = "studysync-backend-br2b.onrender.com";
+    const wsUrl = window.location.hostname === "localhost"
+      ? "ws://localhost:8000"
+      : `wss://${backendHost}`;
+
+    const ws = new WebSocket(`${wsUrl}/ws/room/${cleanRoomCode}`);
     socketRef.current = ws;
 
     ws.onopen = () => {
@@ -365,7 +372,7 @@ export default function StudyRoom() {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Hadi"
+                placeholder="e.g. Name"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 className="w-full bg-rose-950/30 border border-rose-800/50 rounded-2xl px-4 py-3 text-sm text-rose-50 placeholder-rose-700 focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 transition-all"
@@ -520,7 +527,7 @@ export default function StudyRoom() {
           {/* --- AMBIENT SOUNDBOARD WIDGET --- */}
           <AmbientSoundboard />
 
-          {/* --- PASTE SHARED MUSIC PLAYER HERE --- */}
+          {/* --- SHARED MUSIC PLAYER --- */}
           <SharedMusicPlayer socketRef={socketRef} userName={userName} />
 
           {/* --- COUPLE'S GOALS --- */}
@@ -528,7 +535,6 @@ export default function StudyRoom() {
             <span className="text-xs font-bold text-rose-300 uppercase tracking-widest flex items-center gap-2">
               <span>💌</span> Our Promises Today
             </span>
-...
 
             <form onSubmit={addSharedGoal} className="flex gap-2">
               <input
@@ -689,20 +695,6 @@ export default function StudyRoom() {
             </form>
           </div>
         </div>
-
-      const backendHost = "studysync-backend-br2b.onrender.com";
-
-// For WebSockets (use wss:// for HTTPS domains)
-const wsUrl = window.location.hostname === "localhost"
-  ? "ws://localhost:8000"
-  : `wss://${backendHost}`;
-
-// For regular HTTP requests (if needed)
-const httpUrl = window.location.hostname === "localhost"
-  ? "http://localhost:8000"
-  : `https://${backendHost}`;
-
-const ws = new WebSocket(`${wsUrl}/ws/room/${cleanRoomCode}`);
       )}
     </div>
   );
