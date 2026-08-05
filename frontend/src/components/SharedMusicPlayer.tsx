@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import YouTube, { YouTubeEvent } from "react-youtube";
+import YouTube, { type YouTubeEvent } from "react-youtube";
 
 interface SharedMusicPlayerProps {
   socketRef: React.MutableRefObject<WebSocket | null>;
@@ -10,7 +10,6 @@ export default function SharedMusicPlayer({ socketRef, userName }: SharedMusicPl
   const [videoUrl, setVideoUrl] = useState("");
   const [videoId, setVideoId] = useState("5qap5aO4i9A"); // Default lofi girl stream
   
-  // ✅ Fix: Removed unused `isPlaying` state variable to resolve TS6133
   const playerRef = useRef<any>(null);
 
   // Extract YouTube ID from various link formats
