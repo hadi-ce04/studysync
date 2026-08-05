@@ -689,6 +689,20 @@ export default function StudyRoom() {
             </form>
           </div>
         </div>
+
+      const backendHost = "studysync-backend-br2b.onrender.com";
+
+// For WebSockets (use wss:// for HTTPS domains)
+const wsUrl = window.location.hostname === "localhost"
+  ? "ws://localhost:8000"
+  : `wss://${backendHost}`;
+
+// For regular HTTP requests (if needed)
+const httpUrl = window.location.hostname === "localhost"
+  ? "http://localhost:8000"
+  : `https://${backendHost}`;
+
+const ws = new WebSocket(`${wsUrl}/ws/room/${cleanRoomCode}`);
       )}
     </div>
   );
