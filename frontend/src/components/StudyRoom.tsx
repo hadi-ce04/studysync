@@ -58,7 +58,9 @@ export default function StudyRoom() {
   // --- Synced Timer States ---
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // ✅ FIX: Use ReturnType<typeof setInterval> instead of NodeJS.Timeout
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const socketRef = useRef<WebSocket | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -69,7 +71,7 @@ export default function StudyRoom() {
       timerRef.current = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
-            clearInterval(timerRef.current!);
+            if (timerRef.current) clearInterval(timerRef.current);
             setIsRunning(false);
             soundManager.playTimerCompleteSound();
 
