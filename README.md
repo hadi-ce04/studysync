@@ -45,3 +45,17 @@ StudySync is a real-time collaborative study web application designed to help st
 ### 1. Clone the Repository
 git clone [https://github.com/hadi-ce04/studysync.git](https://github.com/hadi-ce04/studysync.git)
 cd studysync
+
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+cd ../frontend
+npm install
+npm run dev
+Frontend runs on http://localhost:5173
+
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
