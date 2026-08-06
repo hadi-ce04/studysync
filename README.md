@@ -44,6 +44,7 @@ StudySync is a real-time collaborative study web application designed to help st
 ### 1. Clone the Repository
 
 git clone https://github.com/hadi-ce04/studysync.git
+
 cd studysync
 
 
