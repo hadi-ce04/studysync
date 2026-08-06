@@ -7,6 +7,25 @@ StudySync is a real-time collaborative study web application designed to help st
 
 ---
 
+## 📸 Screenshots & Preview
+
+### 🏠 Landing Page & Authentication
+| Home Landing | Account Creation |
+| :---: | :---: |
+| ![Landing Page](./Screenshot%202026-08-06%20173446.png) | ![Join Modal](./Screenshot%202026-08-06%20173518.png) |
+
+---
+
+### 📊 Dashboard & Tasks
+| Focus Dashboard & Analytics | Task Management |
+| :---: | :---: |
+| ![Dashboard Analytics](./Screenshot%202026-08-06%20173623.png) | ![Tasks Overview](./Screenshot%202026-08-06%20173700.png) |
+
+---
+
+### 🎧 Collaborative Study Room
+![Study Room & Music Sync](./Screenshot%202026-08-06%20173712.png)
+
 ## ✨ Features
 
 * ⏱️ **Pomodoro Focus Timer:** Track individual study sessions with automated session logging and stats.
