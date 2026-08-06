@@ -1,2 +1,47 @@
 # studysync
-StudySync is a full-stack AI-powered platform that helps students study together through focus sessions, shared notes, real-time collaboration, and intelligent learning tools.
+⏱️ StudySync — Collaborative Focus & Study Platform
+
+StudySync is a real-time collaborative study web application designed to help students and focus groups study together, track focus sessions, sync lo-fi music, and manage tasks seamlessly.
+
+🔗 **Live Frontend:** [https://studysync-henna-delta.vercel.app](https://studysync-henna-delta.vercel.app/)  
+⚙️ **Live API Backend:** [https://studysync-backend-br2b.onrender.com](https://studysync-backend-br2b.onrender.com)
+
+---
+
+## ✨ Features
+
+* ⏱️ **Pomodoro Focus Timer:** Track individual study sessions with automated session logging and stats.
+* 🎧 **Shared Lo-Fi Music Player:** Sync YouTube audio playback across all participants in a study room.
+* 💬 **Real-Time Study Rooms:** Instant chat, nudges, reactions, and automated AI study assistant integration (`@ai`).
+* 📋 **Task Management:** Create, toggle, and manage personal tasks directly within your dashboard.
+* 📈 **Analytics & Streaks:** Track completed sessions and overall study streaks.
+* 🔐 **Secure Authentication:** JWT-based user signup and login flow.
+
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend**
+* **Framework:** React + TypeScript (Vite)
+* **Styling:** Tailwind CSS
+* **Components & Libs:** `react-youtube`, `axios`
+* **Hosting:** Vercel
+
+### **Backend**
+* **Framework:** FastAPI (Python)
+* **Real-time Engine:** WebSockets
+* **Database & ORM:** SQLite / PostgreSQL + SQLAlchemy
+* **AI Integration:** Groq / Ollama API
+* **Hosting:** Render
+
+---
+
+## 🚀 Local Setup & Installation
+
+### Prerequisites
+* Node.js (v18+)
+* Python (v3.10+)
+
+### 1. Clone the Repository
+git clone [https://github.com/hadi-ce04/studysync.git](https://github.com/hadi-ce04/studysync.git)
+cd studysync
