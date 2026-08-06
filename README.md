@@ -50,10 +50,13 @@ cd studysync
 ### 2. Backend Setup
 
 cd backend
+
 python -m venv venv
 # On Windows use: venv\Scripts\activate
 source venv/bin/activate
+
 pip install -r requirements.txt
+
 uvicorn app.main:app --reload
 
 *Backend runs on `http://localhost:8000`*
@@ -61,7 +64,9 @@ uvicorn app.main:app --reload
 ### 3. Frontend Setup
 
 cd ../frontend
+
 npm install
+
 npm run dev
 
 *Frontend runs on `http://localhost:5173`*
