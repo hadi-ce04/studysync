@@ -19,14 +19,14 @@ StudySync is a real-time collaborative study web application designed to help st
 ### 📊 Personal Dashboard
 | Analytics & Tasks Overview | Productivity Metrics |
 | :---: | :---: |
-| ![Dashboard Overview](./Screenshot%202026-08-06%20173623.png) | ![Productivity Stats](./Screenshot%202026-08-06%20173700.png) |
+| ![Dashboard Overview](./Screenshot%202026-08-06%20173712.png) | ![Productivity Stats](./Screenshot%202026-08-06%20173700.png) |
 
 ---
 
 ### 🎧 Collaborative Study Room
-![Synced Study Environment](./Screenshot%202026-08-06%20173712.png)
+![Synced Study Environment](./Screenshot%202026-08-06%20173623.png)
 
----
+--- 
 
 ## ✨ Features
 
