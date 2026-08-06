@@ -1,9 +1,8 @@
-# studysync
-⏱️ StudySync — Collaborative Focus & Study Platform
+# ⏱️ StudySync — Collaborative Focus & Study Platform
 
 StudySync is a real-time collaborative study web application designed to help students and focus groups study together, track focus sessions, sync lo-fi music, and manage tasks seamlessly.
 
-🔗 **Live Frontend:** [https://studysync-henna-delta.vercel.app](https://studysync-henna-delta.vercel.app/)  
+🔗 **Live Frontend:**    [https://studysync-henna-delta.vercel.app](https://studysync-henna-delta.vercel.app/)  
 ⚙️ **Live API Backend:** [https://studysync-backend-br2b.onrender.com](https://studysync-backend-br2b.onrender.com)
 
 ---
@@ -43,19 +42,32 @@ StudySync is a real-time collaborative study web application designed to help st
 * Python (v3.10+)
 
 ### 1. Clone the Repository
-git clone [https://github.com/hadi-ce04/studysync.git](https://github.com/hadi-ce04/studysync.git)
+
+git clone https://github.com/hadi-ce04/studysync.git
 cd studysync
+
+
+### 2. Backend Setup
 
 cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# On Windows use: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
+
+*Backend runs on `http://localhost:8000`*
+
+### 3. Frontend Setup
 
 cd ../frontend
 npm install
 npm run dev
-Frontend runs on http://localhost:5173
 
-📄 License
-Distributed under the MIT License. See LICENSE for more information.
+*Frontend runs on `http://localhost:5173`*
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
