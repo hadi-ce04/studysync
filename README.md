@@ -1,4 +1,4 @@
-# ⏱️ StudySync — Collaborative Focus & Study Platform
+# ⏱️ StudySync — Collaborative Focus - Study Platform
 
 StudySync is a real-time collaborative study web application designed to help students and focus groups study together, track focus sessions, sync lo-fi music, and manage tasks seamlessly.
 
