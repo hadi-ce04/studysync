@@ -3,7 +3,7 @@
 StudySync is a real-time collaborative study web application designed to help students and focus groups study together, track focus sessions, sync lo-fi music, and manage tasks seamlessly.
 
 🔗 **Live Frontend:**    [https://studysync-henna-delta.vercel.app](https://studysync-henna-delta.vercel.app/)  
-⚙️ **Live API Backend:** [https://studysync-backend-br2b.onrender.com](https://studysync-backend-br2b.onrender.com)
+
 
 ---
 
