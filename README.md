@@ -39,7 +39,7 @@ StudySync is a real-time collaborative study web application designed to help st
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack-
 
 ### **Frontend**
 * **Framework:** React + TypeScript (Vite)
